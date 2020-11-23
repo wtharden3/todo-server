@@ -15,10 +15,3 @@ const User = db.define("user", {
 });
 
 module.exports = User;
-
-    allowNull: false
-  }
-})
-
-module.exports = User;
-
