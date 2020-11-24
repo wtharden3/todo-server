@@ -14,7 +14,7 @@ db.authenticate()
 .then(()=> db.sync()) //{force: true} to empty tables
 .then(() => {
   app.listen(process.env.PORT, () => {
-    console.log(`[SERVER] App is listening on ${process.env.PORT}`)
+    console.log(`[SERVER] App is listening on ${process.env.PORT} 😃`)
   })
 })
 .catch(err => {
