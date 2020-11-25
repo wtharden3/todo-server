@@ -15,7 +15,7 @@ router.get('/getalltasks', validateSession, (req, res) => {
 })
 
 router.get('/:date', (req, res) => {
-    List.findone({ where: { date: req.params.flavor }})
+    List.findone({ where: { date: req.params.date }})
         .then(list => res.status(200).json(list))
         .catch(err => res.status(500).json({ error: err }))
 })

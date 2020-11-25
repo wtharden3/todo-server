@@ -11,7 +11,7 @@ const List = db.define("list", {
     type: DataTypes.DATE,
     allowNull: false,
   },
-  listname: {
+  listName: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -19,7 +19,7 @@ const List = db.define("list", {
     type: DataTypes.INTEGER,
     allowNull: true,
   },
-  timedue: {
+  timeDue: {
     type: DataTypes.DATE,
     allowNull: true,
   },
