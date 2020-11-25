@@ -5,7 +5,7 @@ const List = db.define("list", {
   owner_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    unique: true,
+    unique: false,
   },
   date: {
     type: DataTypes.STRING,

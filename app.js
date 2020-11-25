@@ -15,7 +15,7 @@ app.use('/user', controllers.usercontroller);
 app.use("/lists", validateSession, controllers.listcontroller);
 
 db.authenticate()
-.then(()=> db.sync())  // {force: true} to empty tables
+.then(()=> db.sync())  // {force: true}  to empty tables
 .then(() => {
   app.listen(process.env.PORT, () => {
     console.log(`[SERVER] App is listening on ${process.env.PORT} 😃`)
