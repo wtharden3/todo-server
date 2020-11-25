@@ -20,6 +20,18 @@ router.get('/:date', (req, res) => {
         .catch(err => res.status(500).json({ error: err }))
 })
 
+router.get('/:listName', (req, res) => {
+    List.findone({ where: {listName: req.params.listName }})
+    .then(list => res.status(200).json(list))
+    .catch(err => res.status(500).json({ error: err }))
+})
+
+router.get('/:duration', (req, res) => {
+    List.findone({ where: {duration: req.params.duration }})
+      .then(list => res.status(200).json(list))
+      .catch(err => res.status(500).json({ error: err }))
+})
+
 router.post("/createlist", validateSession, async (req, res) => {
     console.log("Listcontroller =>", req.user);
     try{
