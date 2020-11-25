@@ -14,6 +14,7 @@ const List = db.define("list", {
   listName: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
   },
   duration: {
     type: DataTypes.INTEGER,
