@@ -8,7 +8,7 @@ const List = db.define("list", {
     unique: true,
   },
   date: {
-    type: DataTypes.DATE,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   listName: {
@@ -20,7 +20,7 @@ const List = db.define("list", {
     allowNull: true,
   },
   timeDue: {
-    type: DataTypes.DATE,
+    type: DataTypes.STRING,
     allowNull: true,
   },
   description: {

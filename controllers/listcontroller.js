@@ -35,13 +35,14 @@ router.get('/:duration', (req, res) => {
 router.post("/createlist", validateSession, async (req, res) => {
     console.log("Listcontroller =>", req.user);
     try{
-        const {date, listname, duration, timedue, description, isChecked} = req.body;
+        const {owner_id, date, listName, duration, timeDue, description, isChecked} = req.body;
 
         let newList = await List.create({
-            date, listname, duration, timedue, description, isChecked
+            owner_id: req.user.id, date, listName, duration, timeDue, description, isChecked
         });
         res.status(200).json({
-            pie: newPie,
+            list: newList,
+            owner_id: req.user.id,
             message: "You've made a new list! Look at you!"
         })
 
