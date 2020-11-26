@@ -29,7 +29,7 @@ const List = db.define("list", {
   },
   isChecked: {
     type: DataTypes.BOOLEAN,
-    allowNull: false,
+    allowNull: true,
   },
 });
 
