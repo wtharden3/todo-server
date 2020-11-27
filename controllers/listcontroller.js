@@ -42,7 +42,7 @@ router.post('/createlist', validateSession, async (req, res) => {
       isChecked,
     });
     res.status(200).json({
-      pie: newPie,
+      list: newList,
       message: "You've made a new list! Look at you!",
     });
   } catch (error) {
