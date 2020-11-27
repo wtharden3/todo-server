@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
 
   try {
     let loginUser = await User.findOne({ where: { email } });
-    console.log(loginUser);
+    //console.log(loginUser);
 
     if (loginUser && bcrypt.compare(password, loginUser.password)) {
       //assign a token
