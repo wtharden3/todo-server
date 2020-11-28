@@ -6,12 +6,12 @@ const validateSession = require('../middleware/validateSession');
 router.get('/taskmaster'), (req, res) => res.send('Did this work???');
 
 router.get('/getalltasks', validateSession, (req, res) => {
-  const query = req.user.owner_id;
-  List.findAll({ where: { owner_id: query } })
+  let userid = req.user.id;
+  List.findAll({where: {owner_id: userid}})
     .then(list => res.status(200).json(list))
     .catch(err =>
       res.status(500).json({
-        error: err
+        error: err,
       })
     );
 });
@@ -56,14 +56,14 @@ router.post('/createlist', validateSession, async (req, res) => {
   }
 });
 
-router.put("/update/:id", validateSession, (req, res) => {
+router.put('/update/:id', validateSession, (req, res) => {
   const query = req.params.id;
   List.update(req.body, { where: { id: query } })
-    .then((listsUpdated) => {
-      List.findOne({ where: { id: query } }).then((locatedUpdatedList) => {
+    .then(listsUpdated => {
+      List.findOne({ where: { id: query } }).then(locatedUpdatedList => {
         res.status(200).json({
           list: locatedUpdatedList,
-          message: "List has been updated successfully!!",
+          message: 'List has been updated successfully!!',
           listsChanged: listsUpdated,
         });
       });
@@ -76,7 +76,7 @@ router.put("/update/:id", validateSession, (req, res) => {
     );
 });
 //  DELETE LIST
-router.delete("/delete/:id", validateSession, (req, res) => {
+router.delete('/delete/:id', validateSession, (req, res) => {
   List.destroy({
     where: { id: req.params.id },
   })

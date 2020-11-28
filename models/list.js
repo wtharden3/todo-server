@@ -1,7 +1,7 @@
-const { DataTypes } = require("sequelize");
-const db = require("../db");
+const { DataTypes } = require('sequelize');
+const db = require('../db');
 
-const List = db.define("list", {
+const List = db.define('list', {
   owner_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -14,7 +14,6 @@ const List = db.define("list", {
   listName: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true,
   },
   duration: {
     type: DataTypes.INTEGER,
