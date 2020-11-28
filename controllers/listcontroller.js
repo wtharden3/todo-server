@@ -25,19 +25,21 @@ router.post('/createlist', validateSession, async (req, res) => {
   console.log('Listcontroller =>', req.user);
   try {
     const {
+      owner_id,
       date,
-      listname,
+      listName,
       duration,
-      timedue,
+      timeDue,
       description,
       isChecked,
     } = req.body;
 
     let newList = await List.create({
+      owner_id: req.user.id,
       date,
-      listname,
+      listName,
       duration,
-      timedue,
+      timeDue,
       description,
       isChecked,
     });
