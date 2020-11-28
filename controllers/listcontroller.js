@@ -68,7 +68,7 @@ router.post("/createlist", validateSession, async (req, res) => {
   }
 });
 
-router.put("/:listName", validateSession, (req, res) => {
+router.put("/update/:entryId", validateSession, (req, res) => {
   const query = req.params.listName;
   List.update(req.body, { where: { listName: query } })
     .then((listsUpdated) => {
@@ -76,7 +76,7 @@ router.put("/:listName", validateSession, (req, res) => {
         (locatedUpdatedList) => {
           res.status(200).json({
             list: locatedUpdatedList,
-            message: "List updated successful",
+            message: "List has been updated successfully",
             listsChanged: listsUpdated,
           });
         }
@@ -90,7 +90,7 @@ router.put("/:listName", validateSession, (req, res) => {
     );
 });
 //  DELETE LIST
-router.delete("/:listName", validateSession, (req, res) => {
+router.delete("/delete/:id", validateSession, (req, res) => {
   List.destroy({
     where: { listName: req.params.listName },
   })
